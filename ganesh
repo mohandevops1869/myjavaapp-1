@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage('git checkout'){
+            steps{
+                git 'https://github.com/mohandevops1869/myjavaapp-1.git'
+            }
+        }
+    }
+}
