@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('git checkout'){
             steps{
-                git clone "https://github.com/mohandevops1869/myjavaapp-1.git"
+                git clone 'https://github.com/mohandevops1869/myjavaapp-1.git'
             }
         }
          stage("Build Code"){
