@@ -3,8 +3,29 @@ pipeline{
     stages{
         stage('git checkout'){
             steps{
-                git 'https://github.com/mohandevops1869/myjavaapp-1.git'
+                git clone "https://github.com/mohandevops1869/myjavaapp-1.git"
             }
         }
+         stage("Build Code"){
+            steps {
+                script {
+
+                    sh """
+                        mvn install
+                        mv target/*.war target/myapp.war
+                        ls -lrt target/*
+                    """
+                }
+            }
+        } 
+        stage("Run Unit Tests"){
+            steps {
+                script {
+
+                    sh "mvn test"
+                }
+            }
+        }  
+
     }
 }
